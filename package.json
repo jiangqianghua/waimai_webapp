@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "./node_modules/.bin/webpack --config webpack.config.dev.js"
+    "dev": "./node_modules/.bin/webpack --config webpack.config.dev.js",
+    "server-dev":"webpack-dev-server --inlin--port 8088 --config webpack.config.dev.js"
   },
   "author": "",
   "license": "ISC",
