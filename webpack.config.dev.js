@@ -56,7 +56,7 @@ const htmlArray = getHtmlArray(entryMap);
  	},
  	module:{
  		rules:[
-            { test: /\.(js|jsx)$/, use: [{loader:'babel-loader'}] , include:srcRoot},
+            { test: /\.(js|jsx)$/, use: [{loader:'babel-loader'},{loader:'eslint-loader'}] , include:srcRoot},
  			{ test: /\.css$/ , use:['style-loader' , 'css-loader'] , include:srcRoot },
  			{ test: /\.scss$/ , use:['style-loader' , 'css-loader','sass-loader',{
                 loader:'sass-resources-loader',
