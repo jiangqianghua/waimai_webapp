@@ -1,3 +1,4 @@
 1 npm install
 2 npm install webpack@4.3.0 --save
 3 npm install webpack-cli@2.0.12 --save
+4 npm install html-webpack-plugin@3.2.0 --save
