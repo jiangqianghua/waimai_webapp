@@ -46,6 +46,9 @@ const entryMap = getEntry();
 const htmlArray = getHtmlArray(entryMap);
  module.exports={
  	mode:'development',
+    devServer: {
+        contentBase: devPath  // wepacck启动服务器发布地址
+    },
  	entry:entryMap,
     resolve:{
         extensions:['.js','.jsx']  // 可以似的import 省略扩展名
