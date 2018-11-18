@@ -6,7 +6,13 @@ const initState = {
 };
 
 const getListData = (state , action) => {
-	return {...state , list:action.obj.data.poilist};
+	if(action.currentPage == 0){
+		return {...state , list:action.obj.data.poilist};
+	}else{
+		let list = state.list ;
+		// 拼接后面的数据
+		return {...state , list:list.concat(action.obj.data.poilist)};
+	}
 }
 
 

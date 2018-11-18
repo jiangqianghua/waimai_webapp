@@ -10,12 +10,53 @@ import {getListData} from '../../actions/contentListAction';
 class ContentList extends React.Component{
 	constructor(props){
 		super(props);
-		this.fetchData();
+		// 加载的页码
+		this.page = 0 ;
+		// 请求第一屏数据
+		this.fetchData(this.page );
+		//表示是否可以滚动
+		this.state = {
+			isend:false,
+			loadingText:'加载中'
+		}
+
 	}
 
+	// 滚动加载逻辑
+	onloadPage(){
+			let clientHeight = document.documentElement.clientHeight ; 
+			let scrollHeight = document.body.scrollHeight ; 
+			let scrollTop = document.documentElement.scrollTop ;
 
-	fetchData(){
-		this.props.dispatch(getListData());
+			//滚动到底部提前的阈值
+			let preLoadDis = 30 ;
+			if((scrollTop + clientHeight) >= (scrollHeight - preLoadDis)){
+				//console.log(scrollHeight)
+				this.page++;
+				if(this.page > 3){
+					this.setState({
+						isend:true,
+						loadingText:'已完成'
+					});
+				}else{
+					this.fetchData(this.page);
+				}
+
+			}
+	}
+
+	// 自动调用，组件加载调用
+	componentWillMount(){
+		window.addEventListener('scroll',this.onloadPage.bind(this));
+	}
+
+	// 组件销毁掉用
+	componentWillUnmount(){
+		window.removeEventListener('scroll',this.onloadPage.bind(this));
+	}
+
+	fetchData(page){
+		this.props.dispatch(getListData(page));
 	}
 
 	renderItems(){
@@ -34,6 +75,7 @@ class ContentList extends React.Component{
 					<span className="title-line"></span>
 				</h4>
 				{this.renderItems()}
+				<div className="loading">{this.state.loadingText}</div>
 			</div>
 		) ;
 	}

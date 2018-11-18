@@ -1,4 +1,5 @@
 .list-content{
+	padding-bottom:px2rem(50px);
 	.list-title{
 		text-align:center;
 		font-size:px2rem(16px);
@@ -14,5 +15,12 @@
 		margin-left:px2rem(4px);
 		margin-right:px2rem(4px);
 		margin-bottom:px2rem(4px);
+	}
+	.loading{
+		padding-top:px2rem(10px);
+		padding-bottom:px2rem(10px);
+		font-size:px2rem(16px);
+		text-align:center;
+		color:#ccc;
 	}
 }
