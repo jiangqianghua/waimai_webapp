@@ -51,6 +51,9 @@ const htmlArray = getHtmlArray(entryMap);
     },
  	entry:entryMap,
     resolve:{
+        alias:{
+            component:path.resolve(srcRoot,'component')
+        },
         extensions:['.js','.jsx']  // 可以似的import 省略扩展名
     },
  	output:{

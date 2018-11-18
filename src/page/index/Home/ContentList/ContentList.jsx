@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 
 import ListItem from './ListItem/ListItem'
 import {getListData} from '../../actions/contentListAction';
+import Loading from 'component/Loading/Loading';
 /**
 	外卖类别
 **/
@@ -17,7 +18,6 @@ class ContentList extends React.Component{
 		//表示是否可以滚动
 		this.state = {
 			isend:false,
-			loadingText:'加载中'
 		}
 
 	}
@@ -36,7 +36,6 @@ class ContentList extends React.Component{
 				if(this.page > 3){
 					this.setState({
 						isend:true,
-						loadingText:'已完成'
 					});
 				}else{
 					this.fetchData(this.page);
@@ -75,7 +74,7 @@ class ContentList extends React.Component{
 					<span className="title-line"></span>
 				</h4>
 				{this.renderItems()}
-				<div className="loading">{this.state.loadingText}</div>
+				<Loading isend={this.state.isend}/>
 			</div>
 		) ;
 	}
