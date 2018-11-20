@@ -1,0 +1,83 @@
+.order-item{
+	display:flex;
+	flex-direction:column;
+	
+	.order-item-inner{
+		display:flex;
+		flex-direction:row;
+	}
+
+	.item-img{
+		width:px2rem(40px);
+		height:px2rem(40px);
+		border-radius:50%;
+		margin-left:px2rem(10px);
+		margin-top:px2rem(10px);
+	}
+
+	.item-right{
+		width:100%;
+		display:flex;
+		flex-direction:column;
+		padding-left:px2rem(15px);
+		padding-right:px2rem(10px);
+	}
+
+	.item-top{
+		width:100%;
+		height:px2rem(55px);
+		display:flex;
+		flex-direction:row;
+		align-items:center;
+		border-bottom:px2rem(1px) solid #e0e0e0;
+	}
+
+	.order-name{
+		font-size:px2rem(16px);
+		width:px2rem(170px);
+		font-weight: 600;
+	}
+
+	.arrow{
+		font-size:px2rem(14px);
+		color:#999;
+		margin-left: px2rem(10px);
+	}
+
+	.order-state{
+		flex:1;
+		font-size:px2rem(14px);
+		color:#999;
+		text-align:right;
+		margin-right:px2rem(10px);
+	}
+
+	.item-product{
+		display:flex;
+		flex-direction:row;
+		margin-top:px2rem(10px);
+		font-size:px2rem(14px);
+		color:#666;
+	}
+
+	.product-name{
+		flex:1;
+	}
+
+	.product-count{
+		margin-right:px2rem(10px);
+	}
+
+
+	.p-total-count{
+		flex:1;
+		text-align:right;
+		margin-right:px2rem(10px)
+	}
+
+	.total-price{
+		color:#000;
+		font-weight: 600;
+	}
+
+}
