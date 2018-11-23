@@ -18,7 +18,7 @@ class ListItem extends React.Component{
 
 		return _list.map((item,index)=>{
 			if(item.type === 'more'){
-				return <div key={index} className="item-product">
+				return <div key={index} className="item-product item-price">
 						<span>...</span>
 						<div className="p-total-count">
 							总计{data.product_count}个菜，实付<span className="total-price">¥{data.total}</span>
@@ -33,8 +33,17 @@ class ListItem extends React.Component{
 		
 	}
 
-	renderComment(){
-		return <div>comment</div>
+	// 跳转到评价页面
+	goEval(){
+
+	}
+
+	renderComment(data){
+		let evaluation = !data.is_comment;
+		if(evaluation)
+		return <div className="order-item-comment">
+					<div className="evalution-btn" click={this.goEval()}>评价</div>
+				</div>
 	}
 
 	render(){
@@ -45,16 +54,16 @@ class ListItem extends React.Component{
 					<img className="item-img" src={item.poi_pic} />
 					<div className="item-right">
 						<div className="item-top">
-							<p className="order-name">{item.poi_name}</p>
+							<p className="order-name one-line">{item.poi_name}</p>
 							<div className="arrow">&gt;</div>
-							<div className="order-state">XX</div>
+							<div className="order-state">{item.status_description}</div>
 						</div>
 						<div className="item-bottom">
 							{this.renderProduct(item)}
 						</div>
 					</div>
 				</div>
-				{this.renderComment()}
+				{this.renderComment(item)}
 			</div>
 		) ;
 	}

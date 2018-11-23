@@ -1,4 +1,5 @@
 .order-item{
+	border-top:px2rem(13px) solid #e0e0e0;
 	display:flex;
 	flex-direction:column;
 	
@@ -60,6 +61,10 @@
 		color:#666;
 	}
 
+	.item-bottom{
+		padding-bottom:px2rem(15px);
+	}
+
 	.product-name{
 		flex:1;
 	}
@@ -78,6 +83,25 @@
 	.total-price{
 		color:#000;
 		font-weight: 600;
+	}
+
+	.order-item-comment{
+		width:100%;
+		border-top:px2rem(3px) solid #e0e0e0;
+		padding-top:px2rem(10px);
+		padding-bottom:px2rem(10px);
+
+	}
+
+	.evalution-btn{
+		width:px2rem(80px);
+		height:px2rem(35px);
+		background-color:#ffd161;
+		font-size:px2rem(14px);
+		line-height:px2rem(35px);
+		text-align: center;
+		float:right;
+		margin-right:px2rem(10px);
 	}
 
 }
