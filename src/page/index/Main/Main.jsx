@@ -8,8 +8,9 @@ import BottomBar from '../BottomBar/BottomBar.jsx';
 
 //import Home from '../Home/Home';
 
-import Order from '../Order/Order'
+//import Order from '../Order/Order'
 
+import My from '../My/My';
 class Main extends React.Component{
 	constructor(props){
 		super(props);
@@ -17,7 +18,7 @@ class Main extends React.Component{
 	render(){
 		return (
 			<div>
-				<Order />
+				<My />
 				<BottomBar />
 			</div>
 		);

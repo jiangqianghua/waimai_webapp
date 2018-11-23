@@ -1,0 +1,35 @@
+.my{
+	.header{
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+		width:100%;
+		height:px2rem(160px);
+		background-image:url('./img/header.png');
+		background-size:cover;
+	}
+	.avatar{
+		width:px2rem(80px);
+		border-radius:50%;
+		margin-top:px2rem(25px);
+		border:px2rem(3px) solid rgba(255,255,255,0.4);
+	}
+
+	.name{
+		font-size:px2rem(16px);
+		margin-top:px2rem(10px);
+	}
+
+	.content{
+		min-height:px2rem(507px);
+		background-color:#eee;
+	}
+
+	.items{
+		border-bottom:px2rem(10px) solid #eee;
+		background-color:#fff;
+		li{
+			
+		}
+	}
+}
