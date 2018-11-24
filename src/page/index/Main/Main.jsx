@@ -19,16 +19,18 @@ class Main extends React.Component{
 	}
 	render(){
 		return (
-			<div>
-				<My />
-				<BottomBar />
-			</div>
-		);
+            <div>
+                <Route exact path="/home" component={Home}/>
+                <Route path="/order" component={Order}/>
+                <Route path="/my" component={My}/>
+                <BottomBar />
+            </div>
+        );
 	}
 }
 
-export default connect(
-	state => ({
-		num:state.tabReducer.num
-	})
-)(Main);
+export default withRouter(connect(
+    // state =>({
+        
+    // })
+)(Main));
