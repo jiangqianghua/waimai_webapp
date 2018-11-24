@@ -6,9 +6,11 @@ import {connect} from 'react-redux';
 
 import BottomBar from '../BottomBar/BottomBar.jsx';
 
-//import Home from '../Home/Home';
+import { Route, withRouter } from 'react-router-dom';
 
-//import Order from '../Order/Order'
+import Home from '../Home/Home';
+
+import Order from '../Order/Order';
 
 import My from '../My/My';
 class Main extends React.Component{
