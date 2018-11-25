@@ -1,0 +1,74 @@
+.header{
+	background-color:#fff;
+	margin-top:px2rem(64px);
+	.header-top{
+		position:fixed;
+		width:100%;
+		display:flex;
+		height:px2rem(40px);
+		align-items:center ; 
+		border-bottom:px2rem(1px) solid #e4e4e4;
+		background-color:#fff;
+	}
+
+	.item{
+		font-size:px2rem(13px);
+		color:#2f2f2f;
+		border-right:px2rem(1px) solid #ddd;
+		flex:1;
+		text-align:center;
+		position:relative;
+		&:last-child{
+			border:none;
+		}
+
+		&.cate:after, &.type:after{
+			content:'';
+			display: inline-block;
+			width: px2rem(5px);
+			height:px2rem(5px);
+			margin-bottom:px2rem(2px);
+			border:px2rem(1px) solid #666;
+			border-width: 0 px2rem(1px) px2rem(1px) 0;
+			transform:rotate(45deg);
+			-webkit-transform:rotate(45deg);
+			-webkit-transition:.3s;
+			transition:.3s;
+			margin-left:px2rem(5px);
+		}
+
+		&.filter:after{
+			content:'';
+			display:inline-block;
+			width:px2rem(12px);
+			height:px2rem(12px);
+			transform:ratate(0);
+			background-image:url('./img/filter.png');
+			background-size:cover;
+		}
+		/**  出现current，尖头设置向上， filter除外**/
+		&.current:not(.filter)::after{
+			transform:rotate(225deg);
+			-webkit-tranform:rotate(225deg);
+		}
+		/** 倒三角指示器**/
+		&:before{
+			display:none;
+			content:'';
+			position:absolute;
+			top:px2rem(23px);
+			background-color:#fff;
+			width:px2rem(7px);
+			height:px2rem(7px);
+			left:49%;
+			border:px2rem(1px) solid #e4e4e4;
+			border-width: 0 px2rem(1px) px2rem(1px) 0;
+			transform:rate(225deg);
+			-webkit-transform:rotate(225deg);
+		}
+		/**  只有被选中，才显示指示器**/
+		&.current::before{
+			display:block;
+		}
+	}
+}
