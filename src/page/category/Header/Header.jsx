@@ -2,7 +2,7 @@ import './Header.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {changeTab,getFilterData} from '../actions/headerAction';
+import {changeTab,getFilterData,changeFilter} from '../actions/headerAction';
 
 import {TABKEY} from '../config.js';
 class Header extends React.Component{
@@ -27,6 +27,36 @@ class Header extends React.Component{
 		this.props.dispatch(getFilterData());
 	}
 
+	revertActive(key,dataList)
+	{
+		if(key === TABKEY.cate){
+			for(let i = 0 ; i < dataList.length ; i++){
+				for(let j = 0 ; j < dataList[i].sub_category_list.length ; j++){
+					dataList[i].sub_category_list[j].active = false ;
+				}
+			}
+		}else if(key === TABKEY.type){
+			for(let k = 0 ; k < dataList.length ; k++){
+				dataList[k].active = false ;
+			}
+		}else {
+			for(let m = 0 ; m < dataList.length ; m++){
+				for(let o = 0 ; o < dataList[m].items.length ; o++){
+					dataList[m].items[o].active = false ;
+				}
+			}
+		}
+
+	}
+
+	changeDoFilter(item, key,dataList){
+		this.revertActive(key,dataList);
+		item.active = true ;
+		this.props.dispatch(changeFilter({
+			item,key
+		}));
+	}
+
 	renderTabs(){
 		let tabs = this.props.tabs;
         let array = [];
@@ -48,11 +78,11 @@ class Header extends React.Component{
         return array;
 	}
 
-	renderCateInnerContent(items/**,cateList**/){
+	renderCateInnerContent(items,cateList){
 		return items.sub_category_list.map((item,index)=>{
 			let cls = item.active ? 'cate-box-inner active':'cate-box-inner';
 			return (
-				<div className="cate-box" key={index}>
+				<div onClick={()=>this.changeDoFilter(item,TABKEY.cate,cateList)} className="cate-box" key={index}>
 					<div className={cls}>
 						{item.name}({item.quantity})
 					</div>
@@ -80,7 +110,7 @@ class Header extends React.Component{
 		return typeList.map((item,index)=>{
 			let cls = item.active ? 'type-item active':'type-item';
 			return (
-				<li key={index} className={cls}>
+				<li onClick={()=>this.changeDoFilter(item,TABKEY.type,typeList)} key={index} className={cls}>
 					{item.name}
 				</li>
 			)
@@ -88,14 +118,14 @@ class Header extends React.Component{
 	}
 
 	//筛选内部的每个类目
-	renderFilterInnerContent(items /**, filterList**/){
+	renderFilterInnerContent(items , filterList){
 		return items.map((item,index)=>{
 			let cls = item.icon ? 'cate-box-inner has-icon':'cate-box-inner';
 			if(item.active){
-				cls += 'active';
+				cls += ' active';
 			}
 			return (
-				<div key={index} className="cate-box">
+				<div  onClick={()=>this.changeDoFilter(item,TABKEY.filter,filterList)} key={index} className="cate-box">
 					<div className={cls}>
 						{item.name}
 					</div>
