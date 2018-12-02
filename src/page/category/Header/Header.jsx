@@ -5,6 +5,9 @@ import {connect} from 'react-redux';
 import {changeTab,getFilterData,changeFilter} from '../actions/headerAction';
 
 import {TABKEY} from '../config.js';
+
+import {getListData} from '../actions/contentListAction';
+
 class Header extends React.Component{
 
 	constructor(props){
@@ -54,6 +57,10 @@ class Header extends React.Component{
 		item.active = true ;
 		this.props.dispatch(changeFilter({
 			item,key
+		}));
+		this.props.dispatch(getListData({
+			filterData:item,
+			toFirstPage:true
 		}));
 	}
 
